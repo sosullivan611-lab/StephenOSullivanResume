@@ -1,1 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stephen O'Sullivan | Account Executive &amp; Customer Success Leader</title>
+<meta name="description" content="Strategic Account Executive and Customer Success leader with 8+ years driving enterprise growth, adoption, and retention across SaaS and ad tech.">
+<meta property="og:title" content="Stephen O'Sullivan | Account Executive &amp; Customer Success Leader">
+<meta property="og:description" content="8+ years driving enterprise client growth, adoption, and retention across complex SaaS ecosystems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stephenosullivan.me">
+<meta name="theme-color" content="#0b1020">
+<style>
+:root {
+  --bg: #0b1020;
+  --surface: #131a30;
+  --surface-2: #1a2342;
+  --text: #e8ecf8;
+  --muted: #9aa6c7;
+  --line: #263052;
+  --accent: #5eead4;
+  --accent-ink: #062b27;
+  --radius: 14px;
+  --maxw: 880px;
+}
+:root[data-theme="light"] {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef1f8;
+  --text: #121830;
+  --muted: #55607f;
+  --line: #dde2ef;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
 
+/* top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.brand { font-weight: 700; letter-spacing: .2px; color: var(--text); }
+.nav { display: flex; gap: 6px; align-items: center; }
+.nav a.link { color: var(--muted); padding: 6px 10px; border-radius: 8px; font-size: 14px; display: none; }
+.nav a.link:hover { color: var(--text); background: var(--surface); text-decoration: none; }
+@media (min-width: 640px) { .nav a.link { display: inline-block; } }
+.icon-btn {
+  background: var(--surface); color: var(--text); border: 1px solid var(--line);
+  width: 38px; height: 38px; border-radius: 10px; cursor: pointer; font-size: 16px;
+}
+.icon-btn:hover { border-color: var(--accent); }
+
+/* hero */
+.hero { padding: 56px 0 28px; }
+.eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+h1 { font-size: clamp(34px, 8vw, 56px); line-height: 1.05; margin: 10px 0 12px; letter-spacing: -0.02em; }
+.hero p.lead { color: var(--muted); font-size: clamp(16px, 2.4vw, 19px); max-width: 680px; margin: 0 0 24px; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 15px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); text-decoration: none; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary:hover { filter: brightness(1.08); }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 30px 0 8px; }
+@media (min-width: 700px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+.stat .num { font-size: 30px; font-weight: 800; color: var(--accent); line-height: 1.1; letter-spacing: -0.02em; }
+.stat .lbl { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+/* sections */
+section { padding: 40px 0 8px; scroll-margin-top: 64px; }
+h2 { font-size: 24px; margin: 0 0 6px; letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 0 0 20px; font-size: 15px; }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.section-head .sub { margin: 0; }
+.link-btn { background: none; border: 0; color: var(--accent); cursor: pointer; font-weight: 600; font-size: 14px; padding: 6px 0; }
+.link-btn:hover { text-decoration: underline; }
+
+/* timeline */
+.timeline { position: relative; display: grid; gap: 12px; padding-left: 0; }
+.job { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.job[data-open="true"] { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+.job-head {
+  width: 100%; text-align: left; background: none; border: 0; color: inherit; cursor: pointer;
+  padding: 16px 18px; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; font: inherit;
+}
+.job-head:hover { background: var(--surface-2); }
+.job-title { font-weight: 700; font-size: 17px; }
+.job-co { color: var(--muted); font-size: 14px; grid-column: 1; }
+.job-date { color: var(--muted); font-size: 13px; grid-column: 1; }
+.chev { grid-row: 1 / span 3; grid-column: 2; transition: transform .2s; color: var(--accent); font-size: 20px; }
+.job[data-open="true"] .chev { transform: rotate(90deg); }
+.job-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
+.job[data-open="true"] .job-body { grid-template-rows: 1fr; }
+.job-inner { overflow: hidden; }
+.job-inner > div { padding: 0 18px 16px; }
+.job-inner ul { margin: 0; padding-left: 18px; }
+.job-inner li { margin: 7px 0; color: var(--text); }
+.role { margin-top: 4px; }
+.role + .role { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.role h3 { margin: 0 0 2px; font-size: 15px; }
+.role .rdate { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+.tag { display: inline-block; background: var(--surface-2); color: var(--accent); border: 1px solid var(--line); font-size: 12px; padding: 1px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; font-weight: 600; }
+.hl { color: var(--accent); font-weight: 700; }
+.ctx {
+  background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 8px;
+  padding: 10px 12px; margin: 0 0 12px; font-size: 14px; color: var(--muted);
+}
+.ctx strong { color: var(--text); }
+.ctx a { font-weight: 600; }
+
+/* skills */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.chip {
+  background: var(--surface); color: var(--muted); border: 1px solid var(--line);
+  padding: 7px 14px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600;
+}
+.chip:hover { color: var(--text); border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: 14px;
+  transition: opacity .2s, transform .2s;
+}
+.skill[hidden] { display: none; }
+
+/* about me */
+.season-card { margin-bottom: 14px; }
+.season-card h3 { margin: 0 0 6px; }
+.season-card p { color: var(--text); margin: 0; }
+.season-panel[hidden] { display: none; }
+.faves { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 0 0 14px; }
+@media (min-width: 560px) { .faves { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 800px) { .faves { grid-template-columns: repeat(3, 1fr); } }
+.fave { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+.fave .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+.fave .v { font-weight: 700; margin-top: 2px; }
+.fave .i { font-size: 20px; line-height: 1; margin-bottom: 6px; display: block; }
+.fave.next { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); background: var(--surface-2); }
+
+/* education + contact */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.card h3 { margin: 0 0 2px; font-size: 17px; }
+.card p { margin: 4px 0; color: var(--muted); }
+.contact { text-align: center; padding: 28px 18px; }
+.contact h2 { margin-bottom: 8px; }
+.contact .cta { justify-content: center; margin-top: 16px; }
+footer { color: var(--muted); font-size: 13px; text-align: center; padding: 36px 0 48px; }
+
+/* reveal on scroll */
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .job-body, .chev { transition: none; }
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* print = clean one-column resume */
+@media print {
+  :root, :root[data-theme="light"] {
+    --bg: #fff; --surface: #fff; --surface-2: #fff; --text: #000; --muted: #333; --line: #bbb; --accent: #000; --accent-ink: #fff;
+  }
+  body { font-size: 11pt; }
+  .topbar, .cta, .chips, .link-btn, .icon-btn, .chev, footer, #contact { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .job-body { grid-template-rows: 1fr !important; }
+  .job { break-inside: avoid; border: 0; border-bottom: 1px solid #ddd; border-radius: 0; }
+  .job-head { padding: 8px 0; }
+  .job-inner > div { padding: 0 0 8px; }
+  .stat { border: 1px solid #ccc; }
+  .stat .num { color: #000; }
+  .skill[hidden] { display: inline-block !important; }
+  .season-panel[hidden] { display: block !important; margin-bottom: 6px; }
+  section { padding-top: 18px; }
+  .hero { padding-top: 0; }
+  a { color: #000; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Stephen O'Sullivan</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="link" href="#experience">Experience</a>
+      <a class="link" href="#skills">Skills</a>
+      <a class="link" href="#education">Education</a>
+      <a class="link" href="#about">About</a>
+      <a class="link" href="#contact">Contact</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <div class="eyebrow">Account Executive · Customer Success Leader</div>
+    <h1>Stephen B. O'Sullivan</h1>
+    <p class="lead">Strategic Account Executive and Customer Success leader with 8+ years driving enterprise client growth, adoption, and retention across complex SaaS ecosystems. I manage multimillion-dollar portfolios, lead cross-functional initiatives, and build scalable enablement programs that accelerate revenue and customer value.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:Stephen.o-sullivan@outlook.com">✉ Email me</a>
+      <a class="btn" href="#experience">View experience</a>
+      <button class="btn" id="printBtn" type="button">⬇ Save as PDF</button>
+    </div>
+
+    <div class="stats" aria-label="Career highlights">
+      <div class="stat"><div class="num"><span data-count="8">8</span>+</div><div class="lbl">years in SaaS &amp; ad tech</div></div>
+      <div class="stat"><div class="num">$<span data-count="20">20</span>M+</div><div class="lbl">in portfolios led by my team</div></div>
+      <div class="stat"><div class="num"><span data-count="40">40</span>%</div><div class="lbl">lift in feature adoption</div></div>
+      <div class="stat"><div class="num"><span data-count="30">30</span>%</div><div class="lbl">faster new-hire ramp</div></div>
+    </div>
+  </div>
+
+  <section id="experience">
+    <div class="section-head">
+      <div>
+        <h2>Experience</h2>
+        <p class="sub">From a 20-person startup to a 1,300+ person global platform. Tap any role for the details.</p>
+      </div>
+      <button class="link-btn" id="toggleAll" type="button">Expand all</button>
+    </div>
+
+    <div class="timeline">
+
+      <article class="job reveal" data-open="false">
+        <button class="job-head" type="button" aria-expanded="false">
+          <span class="job-title">Account Executive</span>
+          <span class="job-co">GrowthFactor · Cambridge, MA · MIT-founded startup, ~20 people</span>
+          <span class="job-date">June 2026 – September 2026</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <div class="job-body"><div class="job-inner"><div>
+          <p class="ctx"><strong>Company snapshot:</strong> MIT-founded startup of ~20 people. The entire sales team was two people: me and the head of sales.</p>
+          <ul>
+            <li>Account Executive for a retail real estate analytics startup.</li>
+            <li>Responsible for net new logos and bringing in ARR through cold outbound, trade shows, and networks.</li>
+          </ul>
+        </div></div></div>
+      </article>
+
+      <article class="job reveal" data-open="false">
+        <button class="job-head" type="button" aria-expanded="false">
+          <span class="job-title">Account Executive, Enterprise</span>
+          <span class="job-co">MikMak · Boston, MA · 100+ employees, acquired by SPINS</span>
+          <span class="job-date">September 2025 – June 2026</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <div class="job-body"><div class="job-inner"><div>
+          <p class="ctx"><strong>Company snapshot:</strong> a commerce analytics company of 100+ employees, acquired by SPINS in January 2026 (<a href="https://www.prnewswire.com/news-releases/spins-acquires-mikmak-expanding-capabilities-in-shopper-engagement-and-omnichannel-activation-302661040.html" target="_blank" rel="noopener">read the announcement</a>).</p>
+          <ul>
+            <li>Commercial lead for a portfolio of <span class="hl">Fortune 1000 brands</span>, owning renewals and retention through ValueSelling-driven, consultative engagements.</li>
+            <li>Worked global accounts and regularly prospected into <span class="hl">EMEA and APAC</span> through outbound email and calling.</li>
+            <li>Collaborated cross-functionally with Sales, Customer Success, and Product to align MikMak's commerce analytics solutions with client goals and drive measurable ROI.</li>
+            <li>Managed renewal forecasting and account health in Salesforce while engaging stakeholders across Marketing, eCommerce, and IT to secure long-term partnerships.</li>
+          </ul>
+        </div></div></div>
+      </article>
+
+      <article class="job reveal" data-open="false">
+        <button class="job-head" type="button" aria-expanded="false">
+          <span class="job-title">Manager of Client Services <span class="tag">Promoted</span></span>
+          <span class="job-co">StackAdapt · Chicago, IL · Employee #340, grew to 1,300+</span>
+          <span class="job-date">April 2021 – April 2025</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <div class="job-body"><div class="job-inner"><div>
+          <p class="ctx"><strong>Company snapshot:</strong> I joined as employee #340, just as StackAdapt was expanding into the US. By the time I left, it had grown to 1,300+ employees and operated as a global company. It also raised <a href="https://www.adexchanger.com/online-advertising/stackadapt-secures-235-million-to-invest-in-global-expansion-and-ai/" target="_blank" rel="noopener">$235 million in funding</a> while I was there.</p>
+          <div class="role">
+            <h3>Manager of Client Services</h3>
+            <div class="rdate">January 2023 – April 2025</div>
+            <ul>
+              <li>Led a team of 4 Account Managers managing Core portfolios worth <span class="hl">$20M+</span>, aligning strategy with OKRs and driving product adoption and client satisfaction.</li>
+              <li>Directed cross-functional initiatives across Product, Sales, and Support, including the rollout of 3+ major product releases and implementation playbooks.</li>
+              <li>Developed and facilitated training programs for new hires, <span class="hl">reducing ramp-up time by 30%</span>.</li>
+              <li>Acted as strategic advisor to top-tier clients, guiding onboarding and optimization of platform usage, resulting in a <span class="hl">20% lift in client retention</span>.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <h3>Account Manager</h3>
+            <div class="rdate">April 2021 – December 2022</div>
+            <ul>
+              <li>Owned the full customer lifecycle from onboarding to upsell, resulting in <span class="hl">25% YoY growth</span> in portfolio revenue.</li>
+              <li>Delivered tailored product demos and strategic consultations, <span class="hl">increasing feature adoption by 40%</span>.</li>
+              <li>Used the Challenger Selling methodology to identify expansion opportunities, regularly exceeding targets.</li>
+              <li>Partnered with Product and Engineering to deliver client feedback, contributing to 2 key product enhancements.</li>
+            </ul>
+          </div>
+        </div></div></div>
+      </article>
+
+      <article class="job reveal" data-open="false">
+        <button class="job-head" type="button" aria-expanded="false">
+          <span class="job-title">Senior Programmatic Trader <span class="tag">Promoted</span></span>
+          <span class="job-co">Mediahub MullenLowe · Boston, MA</span>
+          <span class="job-date">August 2019 – March 2021</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <div class="job-body"><div class="job-inner"><div>
+          <div class="role">
+            <h3>Senior Programmatic Trader</h3>
+            <div class="rdate">December 2020 – March 2021</div>
+            <h3 style="margin-top:10px">Programmatic Trader</h3>
+            <div class="rdate">August 2019 – November 2020</div>
+            <ul>
+              <li>Managed multimillion-dollar campaigns across DSPs (DV360, The Trade Desk), optimizing to CPA and ROI targets.</li>
+              <li>Streamlined client reporting and transparency, increasing satisfaction scores.</li>
+              <li>Developed internal training that was adopted across the New York, Los Angeles, and Raleigh offices.</li>
+            </ul>
+          </div>
+        </div></div></div>
+      </article>
+
+      <article class="job reveal" data-open="false">
+        <button class="job-head" type="button" aria-expanded="false">
+          <span class="job-title">Programmatic Trader</span>
+          <span class="job-co">Havas Media · Chicago, IL</span>
+          <span class="job-date">June 2018 – August 2019</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <div class="job-body"><div class="job-inner"><div>
+          <ul>
+            <li>Launched and managed campaigns for Fortune 500 clients, ensuring flawless execution and optimization.</li>
+            <li>Translated media plans into actionable DSP strategies, collaborating with internal planning and creative teams.</li>
+            <li>Improved performance by proactively identifying and implementing campaign optimizations.</li>
+          </ul>
+        </div></div></div>
+      </article>
+
+      <article class="job reveal" data-open="false">
+        <button class="job-head" type="button" aria-expanded="false">
+          <span class="job-title">Application Analyst</span>
+          <span class="job-co">SAP Fieldglass · Chicago, IL</span>
+          <span class="job-date">June 2017 – May 2018</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </button>
+        <div class="job-body"><div class="job-inner"><div>
+          <ul>
+            <li>Partnered with technical teams to troubleshoot and enhance platform usability for enterprise users.</li>
+            <li>Used SQL to generate client-specific usage reports and identify trends in product performance.</li>
+            <li>Supported UAT sessions, gathering client feedback and contributing to product roadmap decisions.</li>
+          </ul>
+        </div></div></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills &amp; Tools</h2>
+    <p class="sub">Filter by area.</p>
+    <div class="chips" role="group" aria-label="Filter skills">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-filter="revenue" aria-pressed="false">Revenue</button>
+      <button class="chip" type="button" data-filter="cs" aria-pressed="false">Customer Success</button>
+      <button class="chip" type="button" data-filter="leadership" aria-pressed="false">Leadership</button>
+      <button class="chip" type="button" data-filter="tech" aria-pressed="false">Tools &amp; Data</button>
+    </div>
+    <div class="skills">
+      <span class="skill" data-cat="revenue">Enterprise renewals</span>
+      <span class="skill" data-cat="revenue">Net new logo prospecting</span>
+      <span class="skill" data-cat="revenue">Upsell &amp; expansion</span>
+      <span class="skill" data-cat="revenue">Renewal forecasting</span>
+      <span class="skill" data-cat="revenue">ValueSelling</span>
+      <span class="skill" data-cat="revenue">Challenger Selling</span>
+      <span class="skill" data-cat="cs">Customer onboarding</span>
+      <span class="skill" data-cat="cs">Account health &amp; retention</span>
+      <span class="skill" data-cat="cs">Product adoption</span>
+      <span class="skill" data-cat="cs">Strategic advisory</span>
+      <span class="skill" data-cat="cs">Product demos</span>
+      <span class="skill" data-cat="leadership">Team leadership</span>
+      <span class="skill" data-cat="leadership">Training &amp; enablement</span>
+      <span class="skill" data-cat="leadership">Cross-functional initiatives</span>
+      <span class="skill" data-cat="leadership">OKR alignment</span>
+      <span class="skill" data-cat="leadership">Implementation playbooks</span>
+      <span class="skill" data-cat="tech">Salesforce</span>
+      <span class="skill" data-cat="tech">DV360</span>
+      <span class="skill" data-cat="tech">The Trade Desk</span>
+      <span class="skill" data-cat="tech">SQL</span>
+      <span class="skill" data-cat="tech">Client reporting &amp; analytics</span>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card reveal">
+      <h3>Saint Louis University, John Cook School of Business</h3>
+      <p>Bachelor of Science in Business Administration · May 2017</p>
+      <p>Concentration in Economics and Business Analytics</p>
+      <p>St. Louis, MO</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About me</h2>
+    <p class="sub">My life is full of travel and adventure. Pick a season to see what I'm up to.</p>
+
+    <div class="chips" role="group" aria-label="Choose a season">
+      <button class="chip season-chip" type="button" data-season="year" aria-pressed="true">All year</button>
+      <button class="chip season-chip" type="button" data-season="fall" aria-pressed="false">Fall</button>
+      <button class="chip season-chip" type="button" data-season="winter" aria-pressed="false">Winter</button>
+      <button class="chip season-chip" type="button" data-season="summer" aria-pressed="false">Summer</button>
+    </div>
+
+    <div class="card season-card reveal">
+      <div class="season-panel" data-season="year">
+        <h3>🏋️ All year</h3>
+        <p>Outside of work, I'm usually at a CrossFit class during the week.</p>
+      </div>
+      <div class="season-panel" data-season="fall">
+        <h3>🥾 Fall</h3>
+        <p>If it's fall, I'm hiking somewhere in New England.</p>
+      </div>
+      <div class="season-panel" data-season="winter">
+        <h3>🎿 Winter</h3>
+        <p>If it's winter, I'm probably skiing somewhere in the world. Last year I spent a week skiing the Dolomiti Superski and completing the Sellaronda.</p>
+      </div>
+      <div class="season-panel" data-season="summer">
+        <h3>🏖️ Summer</h3>
+        <p>In the summer, you can find me at a drive-on beach south of Boston or out on Cape Cod, enjoying some oysters.</p>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-bottom:14px">
+      <h3>☘️ Irish roots</h3>
+      <p>My family is from Ireland, so I spend a lot of time going back to visit.</p>
+    </div>
+
+    <div class="faves">
+      <div class="fave reveal"><span class="i" aria-hidden="true">📍</span><div class="k">Favorite place</div><div class="v">Kinsale, County Cork</div></div>
+      <div class="fave reveal"><span class="i" aria-hidden="true">🎿</span><div class="k">Favorite ski resort</div><div class="v">Palisades Tahoe</div></div>
+      <div class="fave reveal"><span class="i" aria-hidden="true">🏖️</span><div class="k">Favorite beach</div><div class="v">Cahoon Hollow Beach</div></div>
+      <div class="fave reveal"><span class="i" aria-hidden="true">🥾</span><div class="k">Favorite hike</div><div class="v">Flume Gorge Trail</div></div>
+      <div class="fave reveal"><span class="i" aria-hidden="true">⛳</span><div class="k">Favorite golf course</div><div class="v">The Ledges of St. George</div></div>
+      <div class="fave next reveal"><span class="i" aria-hidden="true">✈️</span><div class="k">Where next?</div><div class="v">Who knows! The Seychelles?</div></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="card contact reveal">
+      <h2>Let's talk</h2>
+      <p class="sub" style="margin:0">Introductions, questions, or opportunities: I'd love to hear from you.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:Stephen.o-sullivan@outlook.com">✉ Stephen.o-sullivan@outlook.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© <span id="yr">2026</span> Stephen B. O'Sullivan</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* theme: follow system, allow manual toggle, remember choice if storage works */
+  var themeBtn = document.getElementById('themeBtn');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☾' : '☀';
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', t === 'dark' ? '#0b1020' : '#f6f7fb');
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  applyTheme(saved || (prefersLight ? 'light' : 'dark'));
+  themeBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  /* expandable jobs */
+  var jobs = Array.prototype.slice.call(document.querySelectorAll('.job'));
+  function setJob(job, open) {
+    job.setAttribute('data-open', open ? 'true' : 'false');
+    job.querySelector('.job-head').setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  jobs.forEach(function (job) {
+    job.querySelector('.job-head').addEventListener('click', function () {
+      setJob(job, job.getAttribute('data-open') !== 'true');
+      syncToggleAll();
+    });
+  });
+  setJob(jobs[1], true); /* open the most recent full-time role by default */
+
+  var toggleAll = document.getElementById('toggleAll');
+  function allOpen() { return jobs.every(function (j) { return j.getAttribute('data-open') === 'true'; }); }
+  function syncToggleAll() { toggleAll.textContent = allOpen() ? 'Collapse all' : 'Expand all'; }
+  toggleAll.addEventListener('click', function () {
+    var open = !allOpen();
+    jobs.forEach(function (j) { setJob(j, open); });
+    syncToggleAll();
+  });
+  syncToggleAll();
+
+  /* skills filter */
+  var chips = document.querySelectorAll('.chip[data-filter]');
+  var skills = document.querySelectorAll('.skill');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      skills.forEach(function (s) {
+        s.hidden = !(f === 'all' || s.getAttribute('data-cat') === f);
+      });
+    });
+  });
+
+  /* about me: season picker */
+  var seasonChips = document.querySelectorAll('.season-chip');
+  var seasonPanels = document.querySelectorAll('.season-panel');
+  function showSeason(s) {
+    seasonChips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-season') === s ? 'true' : 'false'); });
+    seasonPanels.forEach(function (p) { p.hidden = p.getAttribute('data-season') !== s; });
+  }
+  seasonChips.forEach(function (c) {
+    c.addEventListener('click', function () { showSeason(c.getAttribute('data-season')); });
+  });
+  showSeason('year');
+
+  /* save as PDF = print dialog with the print stylesheet */
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+
+  /* reveal on scroll + stat count-up */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+
+    var counters = document.querySelectorAll('[data-count]');
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, end = parseInt(el.getAttribute('data-count'), 10), t0 = null;
+        function step(ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min((ts - t0) / 900, 1);
+          el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        }
+        el.textContent = '0';
+        requestAnimationFrame(step);
+        co.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { co.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
